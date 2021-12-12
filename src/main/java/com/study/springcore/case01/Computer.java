@@ -31,9 +31,14 @@ public class Computer {
 	public void setHd(HD hd) {
 		this.hd = hd;
 	}
+	
+	public Double getPrice() {
+		return cpu.getGhz() * 8000 + ram.getGb() * 150 + hd.getGb() * 20;
+	}
+	
 	@Override
 	public String toString() {
-		return "Computer [cpu=" + cpu + ", ram=" + ram + ", hd=" + hd + "]";
+		return "Computer [cpu=" + cpu + ", ram=" + ram + ", hd=" + hd + "] $" + getPrice();
 	}
 	
 }
