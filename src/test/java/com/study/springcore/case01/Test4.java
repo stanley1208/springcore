@@ -39,9 +39,11 @@ public class Test4 {
 		// 電腦陣列
 		Computer[] computers = {computer, acer, ibm};
 		// 求總價, 限用 Java 8 lambda/stream 語法
-		Arrays.stream(computers)
+		double total=Arrays.stream(computers)
 		.mapToDouble(Computer::getPrice)
 		.sum();
+		System.out.println(total);
+		
 		
 	}
 }
