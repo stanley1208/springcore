@@ -1,6 +1,7 @@
 package com.study.springcore.case01;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.stream.Stream;
 
 import org.springframework.context.ApplicationContext;
@@ -38,8 +39,14 @@ public class Test4 {
 		
 		// 電腦陣列
 		Computer[] computers = {computer, acer, ibm};
-		// 求總價, 限用 Java 8 lambda/stream 語法
-		double total=Arrays.stream(computers)
+		// 求總價, 限用 Java 7 語法(程式工程師「教」電腦如何進行資料加總)
+		double total=0;
+		for(Computer c:computers) {
+			total+=c.getPrice();
+		}
+		System.out.println(total);
+		// 求總價, 限用 Java 8 lambda/stream 語法 (程式工程師「命令」電腦進行資料加總)
+		total=Arrays.stream(computers)
 		.mapToDouble(Computer::getPrice)
 		.sum();
 		System.out.println(total);
