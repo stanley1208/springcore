@@ -47,8 +47,8 @@ public class Test4 {
 		System.out.println(total);
 		// 求總價, 限用 Java 8 lambda/stream 語法 (程式工程師「命令」電腦進行資料加總)
 		total=Arrays.stream(computers)
-		.mapToDouble(Computer::getPrice)
-		.sum();
+				.mapToDouble(Computer::getPrice)
+				.sum();
 		System.out.println(total);
 		
 		
