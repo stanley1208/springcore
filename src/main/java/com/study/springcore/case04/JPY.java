@@ -5,7 +5,7 @@ public class JPY extends CurrencyImpl {
 	@Override
 	public double getValue() {
 
-		return 0;
+		return value;
 	}
 
 	@Override

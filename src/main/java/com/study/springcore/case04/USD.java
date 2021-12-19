@@ -2,10 +2,14 @@ package com.study.springcore.case04;
 
 public class USD extends CurrencyImpl {
 
+	public void init() {
+		System.out.println("USD init()");
+	}
+	
 	@Override
 	public double getValue() {
 
-		return 0;
+		return value;
 	}
 
 	@Override
@@ -14,4 +18,8 @@ public class USD extends CurrencyImpl {
 
 	}
 
+	public void destroy() {
+		System.out.println("USD destroy()");
+	}
+	
 }
