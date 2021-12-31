@@ -2,6 +2,7 @@ package com.study.springcore.case08;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,6 +59,17 @@ public class PersonController {
 	}
 	
 	public void printAllPersons() {
-		System.out.println(personService.findAllPersons());
+		//資料呈現
+		SimpleDateFormat sdf=new SimpleDateFormat();
+		//System.out.println(personService.findAllPersons());
+		List<Person>people=personService.findAllPersons();
+		System.out.println("+--------------+---------+--------------+");
+		System.out.println("|     name     |   age   |  birthday    |");
+		System.out.println("+--------------+---------+--------------+");
+		for(Person p:people) {
+			String birthday=sdf.format(p.getBirth());
+			System.out.printf("| %-12s | %7d | %12s |\n", p.getName(), p.getAge(), birthday);
+			System.out.println("+--------------+---------+--------------+");
+		}
 	}
 }
