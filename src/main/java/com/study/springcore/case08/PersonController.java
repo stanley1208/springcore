@@ -37,13 +37,13 @@ public class PersonController {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd");
 		try {
 			Date birth=sdf.parse(yyyy+"/"+MM+"/"+dd);
-			addPeron(name, birth);
+			addPerson(name, birth);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void addPeron(String name,Date birth) {
+	public void addPerson(String name,Date birth) {
 		// 1. 判斷 name 與 birth 是否有資料?
 		// 1. 建立 Person 資料
 		

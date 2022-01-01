@@ -23,9 +23,9 @@ public class PersonServiceImpl implements PersonService{
 	}
 
 	@Override
-	public boolean append(Person peron) {
+	public boolean append(Person person) {
 		
-		return personDao.create(peron);
+		return personDao.create(person);
 	}
 
 	@Override
