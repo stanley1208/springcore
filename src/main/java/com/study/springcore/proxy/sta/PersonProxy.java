@@ -13,6 +13,7 @@ public class PersonProxy implements Person {
 		System.out.println("戴上口罩");
 		try {
 			// 代理調用 person 的 work() 方法
+
 			person.work();
 
 		} catch (Exception e) {
