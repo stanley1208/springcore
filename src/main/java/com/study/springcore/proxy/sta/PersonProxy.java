@@ -1,6 +1,8 @@
 package com.study.springcore.proxy.sta;
 
+//Person 靜態代理 
 public class PersonProxy implements Person {
+	//被代理物件
 	private Person person;
 
 	public PersonProxy(Person person) {
