@@ -20,13 +20,13 @@ public class DynProxy {
 		// 2. 目標所實作的介面
 		Class[] interfaces = obj.getClass().getInterfaces();
 		// 3. 處理代理的實現 (InvocationHandler)
-		InvocationHandler handler = (Object proxy, Method method, Object[] args)->{
-			
-			Object result=null;
-			
+		InvocationHandler handler = (Object proxy, Method method, Object[] args) -> {
+
+			Object result = null;
+
 			// 代理代用被代理物件(目標)的業務方法
-			result=method.invoke(obj, args);
-			
+			result = method.invoke(obj, args);
+
 			return result;
 		};
 		Object proxyObject = Proxy.newProxyInstance(loader, interfaces, handler);
