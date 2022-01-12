@@ -20,4 +20,9 @@ public class AOPConfig {
 	public Audience audience() {
 		return new Audience();
 	}
+	
+	@Bean
+	public Introducter introducter() {
+		return new Introducter();
+	}
 }

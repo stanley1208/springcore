@@ -13,6 +13,16 @@ public class PerformanceTest {
 			performance.perform();
 		} catch (Exception e) {
 			System.out.println(e);
+			// 轉換跑道
+			// 舞者去當歌手
+			System.out.println("舞者改行去當歌手");
+			Singer singer = (Singer) performance;
+			singer.sing();
+
+			// 舞者去表演脫口秀
+			System.out.println("舞者改行去當脫口秀");
+			Actor actor = (Actor) performance;
+			actor.show();
 		}
 
 	}
