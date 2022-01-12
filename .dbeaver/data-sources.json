@@ -24,6 +24,17 @@
 			}
 		}
 	},
+	"virtual-models": {
+		"mysql8-17e4ee700e6-61a1e2397d1c233c": {
+			"portfolio": {
+				"@properties": {
+					"erd.diagram.state": {
+						"serialized": "<diagram version=\"1\" name=\"empty\" time=\"202201122354\"><entities><data-source id=\"mysql8-17e4ee700e6-61a1e2397d1c233c\"><entity id=\"1\" name=\"classify\" fq-name=\"portfolio.classify\" order=\"0\" x=\"339\" y=\"316\"><path name=\"portfolio\"/></entity><entity id=\"2\" name=\"investor\" fq-name=\"portfolio.investor\" order=\"1\" x=\"339\" y=\"39\"><path name=\"portfolio\"/></entity><entity id=\"3\" name=\"portfolio\" fq-name=\"portfolio.portfolio\" order=\"2\" x=\"20\" y=\"20\"><path name=\"portfolio\"/></entity><entity id=\"4\" name=\"tstock\" fq-name=\"portfolio.tstock\" order=\"3\" x=\"160\" y=\"249\"><path name=\"portfolio\"/></entity><entity id=\"5\" name=\"watch\" fq-name=\"portfolio.watch\" order=\"4\" x=\"190\" y=\"136\"><path name=\"portfolio\"/></entity><entity id=\"6\" name=\"watch_tstock\" fq-name=\"portfolio.watch_tstock\" order=\"5\" x=\"20\" y=\"230\"><path name=\"portfolio\"/></entity></data-source></entities><relations><relation name=\"FK7ui18m7o207nqjv96x26hqe7c\" fq-name=\"portfolio.tstock.FK7ui18m7o207nqjv96x26hqe7c\" type=\"fk\" pk-ref=\"1\" fk-ref=\"4\"/><relation name=\"FKemfmdlrp74x2anbdo9n0mfgus\" fq-name=\"portfolio.portfolio.FKemfmdlrp74x2anbdo9n0mfgus\" type=\"fk\" pk-ref=\"2\" fk-ref=\"3\"/><relation name=\"FKms7g1ytau3yy5li63fumgv98w\" fq-name=\"portfolio.watch.FKms7g1ytau3yy5li63fumgv98w\" type=\"fk\" pk-ref=\"2\" fk-ref=\"5\"/><relation name=\"tStock_fk\" fq-name=\"portfolio.portfolio.tStock_fk\" type=\"fk\" pk-ref=\"4\" fk-ref=\"3\"/><relation name=\"FKt10mtx0gv5m8tffosbxq0nebx\" fq-name=\"portfolio.watch_tstock.FKt10mtx0gv5m8tffosbxq0nebx\" type=\"fk\" pk-ref=\"4\" fk-ref=\"6\"/><relation name=\"FKe4s69ww7ji0lrf0w8xon01w6c\" fq-name=\"portfolio.watch_tstock.FKe4s69ww7ji0lrf0w8xon01w6c\" type=\"fk\" pk-ref=\"5\" fk-ref=\"6\"/></relations></diagram>"
+					}
+				}
+			}
+		}
+	},
 	"connection-types": {
 		"dev": {
 			"name": "Development",
