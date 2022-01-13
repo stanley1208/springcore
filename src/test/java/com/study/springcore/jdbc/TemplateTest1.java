@@ -24,6 +24,8 @@ public class TemplateTest1 {
 
 		System.out.println(ename);
 
+		String ename3 = emps.stream().filter(e -> (e.get("eid") + "").equals("3")).findFirst().get().get("ename") + "";
+		System.out.println(ename3);
 	}
 
 }

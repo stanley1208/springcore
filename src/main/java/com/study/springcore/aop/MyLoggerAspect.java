@@ -42,7 +42,7 @@ public class MyLoggerAspect {
 //		System.out.println("後置通知...");
 //	}
 //
-//	// 返回通知:可以在切面程式中的道目標方法的回傳值
+//	// 返回通知:可以在切面程式中的知道目標方法的回傳值
 //	@AfterReturning(value = "pt2()", returning = "result")
 //	public void afterReturning(Object result) {
 //		System.out.println("返回通知 - result = " + result);

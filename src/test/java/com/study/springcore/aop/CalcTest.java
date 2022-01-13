@@ -8,9 +8,9 @@ public class CalcTest {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("aop-conig.xml");
 		Calc calc = ctx.getBean("calcImpl", Calc.class);
-		// System.out.println(calc.add(10, 20));
-		// System.out.println(calc.div(20, 10));
-		// System.out.println(calc.div(20, 0));
+//		System.out.println(calc.add(10, 20));
+		System.out.println(calc.div(20, 10));
+//		System.out.println(calc.div(20, 0));
 	}
 
 }

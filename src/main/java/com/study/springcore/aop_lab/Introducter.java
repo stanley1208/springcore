@@ -10,6 +10,7 @@ public class Introducter {
 
 	public Singer singer;
 	
+	// 將 Performance 及其子類別轉換為 Actor
 	@DeclareParents(value = "com.study.springcore.aop_lab.Performance+",defaultImpl = TalkActor.class)
 
 	public Actor actor;
