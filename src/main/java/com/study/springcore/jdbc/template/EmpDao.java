@@ -79,22 +79,34 @@ public class EmpDao {
 	// 多筆新增 II
 	public int[] multiAdd2(List<Emp> emps) {
 		String sql = "insert into emp(ename,age) values(?,?)";
-		BatchPreparedStatementSetter setter=new BatchPreparedStatementSetter() {
-			
+		BatchPreparedStatementSetter setter = new BatchPreparedStatementSetter() {
+
 			@Override
 			public void setValues(PreparedStatement ps, int i) throws SQLException {
 				// i = emps 的 index
 				ps.setString(1, emps.get(i).getEname());
 				ps.setInt(2, emps.get(i).getAge());
 			}
-			
+
 			@Override
 			public int getBatchSize() {
 				return emps.size();
 			}
 		};
 		return jdbcTemplate.batchUpdate(sql, setter);
-	
+
 	}
-	
+
+	// 修改
+	public int updateById(Integer eid, String ename, Integer age) {
+		String sql = "update emp set ename=?,age=? where eid=?";
+		return jdbcTemplate.update(sql, ename, age, eid);
+	}
+
+	// 刪除
+	public int deleteById(Integer eid) {
+		String sql = "delete from emp where eid=?";
+		return jdbcTemplate.update(sql, eid);
+	}
+
 }

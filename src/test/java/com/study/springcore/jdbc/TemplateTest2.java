@@ -29,21 +29,27 @@ public class TemplateTest2 {
 //		System.out.println("測試單筆新增 II: " + rowcount);
 		// 測試多筆新增 I
 		/*
-		List<Object[]> rows = new ArrayList<>();
-		rows.add(new Object[] { "Jo", 20 });
-		rows.add(new Object[] { "Mark", 21 });
-		rows.add(new Object[] { "Stanley", 22 });
-		rowcounts = empDao.multiAdd1(rows);
-		System.out.println("測試多筆新增 I: " + Arrays.toString(rowcounts));
-		*/
-		// 測試多筆新增 II
-		List<Emp> emps = new ArrayList<>();
-		emps.add(new Emp("Bobo2", 25));
-		emps.add(new Emp("Bob",26));
-		emps.add(new Emp("Alice",27));
-		rowcounts = empDao.multiAdd2(emps);
-		System.out.println("測試多筆新增 II: " + Arrays.toString(rowcounts));
-		
+		 * List<Object[]> rows = new ArrayList<>(); rows.add(new Object[] { "Jo", 20 });
+		 * rows.add(new Object[] { "Mark", 21 }); rows.add(new Object[] { "Stanley", 22
+		 * }); rowcounts = empDao.multiAdd1(rows); System.out.println("測試多筆新增 I: " +
+		 * Arrays.toString(rowcounts));
+		 */
+//		// 測試多筆新增 II
+//		List<Emp> emps = new ArrayList<>();
+//		emps.add(new Emp("Bobo2", 25));
+//		emps.add(new Emp("Bob",26));
+//		emps.add(new Emp("Alice",27));
+//		rowcounts = empDao.multiAdd2(emps);
+//		System.out.println("測試多筆新增 II: " + Arrays.toString(rowcounts));
+//		
+
+		// 測試修改
+//		rowcount = empDao.updateById(1, "Tom", 100);
+//		System.out.println("測試修改 I: " + rowcount);
+
+		// 測試刪除
+//		rowcount = empDao.deleteById(100);
+//		System.out.println("測試刪除 I: " + rowcount);
 	}
 
 }
