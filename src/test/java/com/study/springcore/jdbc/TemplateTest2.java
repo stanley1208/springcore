@@ -12,21 +12,20 @@ import com.study.springcore.aop_lab.AOPConfig;
 import com.study.springcore.jdbc.entity.Emp;
 import com.study.springcore.jdbc.template.EmpDao;
 
-public class TemplateTest1 {
+public class TemplateTest2 {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("jdbc-config.xml");
 		EmpDao empDao = ctx.getBean("empDao", EmpDao.class);
-		System.out.println(empDao.queryAll());
-		// 如何取得 eid=2 的員工姓名? 使用java8
-		List<Map<String, Object>> emps = empDao.queryAll();
-		String ename = emps.stream().filter(e -> (e.get("eid") + "").equals("2")).findFirst().get().get("ename") + "";
-
-		System.out.println(ename);
-
-		System.out.println(empDao.queryListEmps());
-
-		System.out.println(empDao.queryListEmps2());
+		int rowcount = 0;
+		// 測試單筆新增 I
+//		rowcount = empDao.addOne1("test1", 18);
+//		System.out.println("測試單筆新增 I: " + rowcount);
+		// 測試單筆新增 II
+		// 測試多筆新增 I
+		// 測試多筆新增 II
+		rowcount = empDao.addOne2("test2", 19);
+		System.out.println("測試單筆新增 II: " + rowcount);
 	}
 
 }
