@@ -19,11 +19,14 @@ public class TemplateTest3 {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("jdbc-config.xml");
 		EmpJobDao empJobDao = ctx.getBean("empJobDao", EmpJobDao.class);
-		
+
 		empJobDao.queryEmps().forEach(System.out::println);
 		System.out.println();
 		empJobDao.queryJobs().forEach(System.out::println);
-		
+		System.out.println();
+		empJobDao.queryEmps2().forEach(System.out::println);
+		System.out.println();
+		empJobDao.queryJobs2().forEach(System.out::println);
 	}
 
 }

@@ -3,9 +3,11 @@ package com.study.springcore.jdbc.template;
 import java.sql.ResultSet;
 import java.util.List;
 
+import org.simpleflatmapper.jdbc.spring.JdbcTemplateMapperFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import com.study.springcore.jdbc.entity.Emp;
@@ -59,13 +61,27 @@ public class EmpJobDao {
 	}
 	
 	public List<Emp>queryEmps2(){
-		
-		return null;
+		String sql="select e.eid,e.ename ,e.age ,e.createtime,\r\n"
+				+ "		j.jid as job_jid,j.jname as job_jname,j.eid as job_eid\r\n"
+				+ "from emp e left outer join job j on j.eid=e.eid";
+				
+		ResultSetExtractor<List<Emp>>resultSetExtractor=JdbcTemplateMapperFactory.newInstance()
+				.addKeys("eid")
+				.newResultSetExtractor(Emp.class);
+		return jdbcTemplate.query(sql, resultSetExtractor);
 	}
 	
 	public List<Job>queryJobs2(){
+		String sql="select j.jid ,j.jname ,j.eid,\r\n"
+				+ "e.eid as emp_eid,e.ename as emp_ename,e.age as emp_age,e.createtime as emp_createtime\r\n"
+				+ "from job j left outer join emp e on e.eid=j.jid ";
+				
+		ResultSetExtractor<List<Job>>resultSetExtractor=JdbcTemplateMapperFactory.newInstance()
+				.addKeys("jid")
+				.newResultSetExtractor(Job.class);
+		
+		return jdbcTemplate.query(sql, resultSetExtractor);
 		
 		
-		return null;
 	}
 }
