@@ -64,7 +64,7 @@ public class EmpJobDao {
 		String sql="select e.eid,e.ename ,e.age ,e.createtime,\r\n"
 				+ "		j.jid as job_jid,j.jname as job_jname,j.eid as job_eid\r\n"
 				+ "from emp e left outer join job j on j.eid=e.eid";
-				
+		// j.jid as job_jid 這樣的命名原則 "job_jid" 是表示將 jid 的內容 是對應給 job 的資料表 
 		ResultSetExtractor<List<Emp>>resultSetExtractor=JdbcTemplateMapperFactory.newInstance()
 				.addKeys("eid")
 				.newResultSetExtractor(Emp.class);
