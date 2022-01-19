@@ -1,13 +1,18 @@
 package com.study.springcore.jdbc.entity;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+import static java.util.stream.Collectors.toList;
 
 public class Emp {
+	// 欄位
 	private Integer eid;
 	private String ename;
 	private Integer age;
 	private Date createTime;
-
+	// 關係
+	private List<Job>jobs;
 	public Emp() {
 		super();
 	}
@@ -52,9 +57,20 @@ public class Emp {
 		this.createTime = createTime;
 	}
 
+	public List<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
+	}
+
 	@Override
 	public String toString() {
-		return "Emp [eid=" + eid + ", ename=" + ename + ", age=" + age + ", createTime=" + createTime + "]";
+		return "Emp [eid=" + eid + ", ename=" + ename + ", age=" + age + ", createTime=" + createTime + ", jobs="
+					+ (jobs==null?"":jobs.stream().map(Job::getJname) .collect(toList()))+ "]";
 	}
+
+	
 
 }
