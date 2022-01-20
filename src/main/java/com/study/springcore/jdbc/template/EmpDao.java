@@ -86,6 +86,7 @@ public class EmpDao {
 				// i = emps 的 index
 				ps.setString(1, emps.get(i).getEname());
 				ps.setInt(2, emps.get(i).getAge());
+				
 			}
 
 			@Override

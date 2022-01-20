@@ -42,12 +42,12 @@ order by e.ename
 
 -- 每一個員工有幾項工作
 select e.ename,count(j.jname)
-from emp e inner join job j on e.eid=j.jid 
+from emp e join job j on e.eid=j.jid 
 group by e.ename
 
 -- 查詢工作量最多的員工有幾項工作
 select e.ename, count(j.jname)
-from emp as e, job as j
+from emp e, job j
 where e.eid = j.eid
 group by e.ename
 

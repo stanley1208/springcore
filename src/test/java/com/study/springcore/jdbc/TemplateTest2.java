@@ -23,16 +23,18 @@ public class TemplateTest2 {
 		// 測試單筆新增 I
 //		rowcount = empDao.addOne1("test1", 18);
 //		System.out.println("測試單筆新增 I: " + rowcount);
-		// 測試單筆新增 II
 
+		// 測試單筆新增 II
 //		rowcount = empDao.addOne2("test2", 19);
 //		System.out.println("測試單筆新增 II: " + rowcount);
 		// 測試多筆新增 I
 		/*
-		 * List<Object[]> rows = new ArrayList<>(); rows.add(new Object[] { "Jo", 20 });
-		 * rows.add(new Object[] { "Mark", 21 }); rows.add(new Object[] { "Stanley", 22
-		 * }); rowcounts = empDao.multiAdd1(rows); System.out.println("測試多筆新增 I: " +
-		 * Arrays.toString(rowcounts));
+		 * List<Object[]> rows = new ArrayList<>(); 
+		 * rows.add(new Object[] { "Jo", 20 });
+		 * rows.add(new Object[] { "Mark", 21 }); 
+		 * rows.add(new Object[] { "Stanley", 22}); 
+		 * rowcounts = empDao.multiAdd1(rows); 
+		 * System.out.println("測試多筆新增 I: " + Arrays.toString(rowcounts));
 		 */
 //		// 測試多筆新增 II
 //		List<Emp> emps = new ArrayList<>();

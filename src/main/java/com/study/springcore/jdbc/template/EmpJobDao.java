@@ -48,7 +48,7 @@ public class EmpJobDao {
 			job.setJname(rs.getString("jname"));
 			job.setEid(rs.getInt("eid"));
 			
-			
+			// 一個 eid 只對應一個 employee
 			String sql2="select eid, ename,age,createtime from emp where eid=?";
 			List<Emp>emps=jdbcTemplate.query(sql2, new BeanPropertyRowMapper<>(Emp.class),job.getEid());
 			if(emps!=null && emps.size()>0) {
@@ -59,7 +59,7 @@ public class EmpJobDao {
 		});
 		return jobs;
 	}
-	
+	// left outer join = left join
 	public List<Emp>queryEmps2(){
 		String sql="select e.eid,e.ename ,e.age ,e.createtime,\r\n"
 				+ "		j.jid as job_jid,j.jname as job_jname,j.eid as job_eid\r\n"
