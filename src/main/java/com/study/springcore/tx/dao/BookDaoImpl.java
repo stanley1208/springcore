@@ -2,7 +2,9 @@ package com.study.springcore.tx.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class BookDaoImpl implements BookDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -39,7 +41,7 @@ public class BookDaoImpl implements BookDao {
 		}
 		// 修改庫存
 		String sql = "update stock set amount=amount-? where bid=?";
-		return null;
+		return jdbcTemplate.update(sql,amount,bid);
 	}
 
 	@Override
@@ -55,7 +57,6 @@ public class BookDaoImpl implements BookDao {
 		}
 		// 修改餘額
 		String sql = "select wallet set money =money=? where wid=?";
-		return jdbcTemplate.queryForObject(sql, Integer.class, wid);
-
+		return jdbcTemplate.update(sql,money,wid);
 	}
 }
