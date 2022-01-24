@@ -14,5 +14,6 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
 	<bean id="car" class="com.study.springcore.case06.CarFactory"></bean>
-	<bean id="area" class="com.study.springcore.case06.RoundArea" p:radius="10"></bean>
+	<bean id="area" class="com.study.springcore.case06.RoundArea"
+		p:radius="10"></bean>
 </beans>

@@ -12,15 +12,18 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
-	
-		
-		
-		<!-- 資源文件加載 -->
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+
+
+
+	<!-- 資源文件加載 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="product.properties"></property>
 	</bean>
-	
-	
-	<bean id="product" class="com.study.springcore.case03.Product" p:discount="0.9" />
-	<bean id="product2" class="com.study.springcore.case03.Product" p:discount="${product.discount}" />
+
+
+	<bean id="product" class="com.study.springcore.case03.Product"
+		p:discount="0.9" />
+	<bean id="product2" class="com.study.springcore.case03.Product"
+		p:discount="${product.discount}" />
 </beans>

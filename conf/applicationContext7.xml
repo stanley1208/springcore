@@ -13,14 +13,14 @@
 		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
-	<context:component-scan base-package="com.study.springcore.case07">
+	<context:component-scan
+		base-package="com.study.springcore.case07">
 		<!-- 指名要管理某一個類別物件，則該類別可以不用加註@Component -->
-		<context:include-filter type="assignable" expression="com.study.springcore.case07.User"/>
-		<!-- 排除某一個物件類別 不被Spring管理
-		<context:exclude-filter type="assignable" expression="com.study.springcore.case07.Person"/>
-		-->
+		<context:include-filter type="assignable"
+			expression="com.study.springcore.case07.User" />
+		<!-- 排除某一個物件類別 不被Spring管理 <context:exclude-filter type="assignable" expression="com.study.springcore.case07.Person"/> -->
 	</context:component-scan>
-	
-	
-	
+
+
+
 </beans>
