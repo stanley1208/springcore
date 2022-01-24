@@ -26,3 +26,9 @@ create table if not exists wallet(
 	primary key(wid) -- 主鍵
 	
 );
+-- Homework 建立交易紀錄 order_log
+-- Vincent 在2020/1/23 PM 2:07:51 買了java書2本共300元
+-- Vincent 在2020/1/23 PM 2:08:51 買了python書2本共200元
+-- Vincent 在2020/1/23 PM 2:10:51 買了java書4本共600元
+-- 注意:若 book 的 price 欄位有變動，order_log 則不影響
+-- 試問:資料表應如何創建?
