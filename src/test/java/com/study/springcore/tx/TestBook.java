@@ -11,6 +11,10 @@ public class TestBook {
 		ApplicationContext ctx=new ClassPathXmlApplicationContext("jdbc-config.xml");
 		BookController bookController=ctx.getBean(BookController.class);
 		System.out.println(bookController);
+		// case 1
+		Integer wid=1;
+		Integer bid=2;
+		bookController.buyBook(wid, bid);
 	}
 
 }

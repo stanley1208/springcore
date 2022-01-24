@@ -40,7 +40,7 @@ public class BookDaoImpl implements BookDao {
 
 		}
 		// 修改庫存
-		String sql = "update stock set amount=amount-? where bid=?";
+		String sql = "update stock set amount = amount - ? where bid=?";
 		return jdbcTemplate.update(sql,amount,bid);
 	}
 
@@ -56,7 +56,7 @@ public class BookDaoImpl implements BookDao {
 
 		}
 		// 修改餘額
-		String sql = "select wallet set money =money=? where wid=?";
+		String sql = "update wallet set money = money - ? where wid=?";
 		return jdbcTemplate.update(sql,money,wid);
 	}
 }
