@@ -25,7 +25,7 @@ public class BookServiceImpl implements BookService {
 		// 減去一本庫存
 		bookDao.updateStock(bid, 1);
 		// 取得書籍價格
-		System.out.println(10/0);
+		//System.out.println(10/0); // 產生 ArithmeticException 錯誤 (根據上面的定義資料庫不做回滾)
 		Integer price = bookDao.getPrice(bid);
 		// 減去錢包裡的金額
 		bookDao.updateWallet(wid, price);

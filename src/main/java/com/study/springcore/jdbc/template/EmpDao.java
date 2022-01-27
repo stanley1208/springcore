@@ -13,8 +13,13 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.mysql.cj.protocol.Resultset;
 import com.study.springcore.jdbc.entity.Emp;
 
@@ -26,6 +31,9 @@ public class EmpDao {
 
 	@Autowired
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+	@Autowired
+	private ComboPooledDataSource dataSource;
 
 	// 多筆查詢 I
 	public List<Map<String, Object>> queryAll() {
@@ -86,7 +94,7 @@ public class EmpDao {
 				// i = emps 的 index
 				ps.setString(1, emps.get(i).getEname());
 				ps.setInt(2, emps.get(i).getAge());
-				
+
 			}
 
 			@Override
@@ -108,6 +116,29 @@ public class EmpDao {
 	public int deleteById(Integer eid) {
 		String sql = "delete from emp where eid=?";
 		return jdbcTemplate.update(sql, eid);
+	}
+
+	// 單筆新增交易版
+	// 單筆新增交易版
+	public int addOneTx(String ename, Integer age) throws Exception {
+		// 建立 TransactionManager
+		DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
+		// 定義 TransactionDefinition
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+
+		int rowcount = 0;
+		TransactionStatus status = transactionManager.getTransaction(def);
+		try {
+			String sql = "insert into emp(ename, age) values(?, ?)";
+			rowcount = jdbcTemplate.update(sql, ename, age);
+			// System.out.println(10/0); // 模擬發生錯誤
+		} catch (Exception e) {
+			transactionManager.rollback(status);
+			throw e;
+		}
+		transactionManager.commit(status);
+		return rowcount;
 	}
 
 }
