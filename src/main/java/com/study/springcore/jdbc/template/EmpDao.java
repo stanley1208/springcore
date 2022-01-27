@@ -119,7 +119,6 @@ public class EmpDao {
 	}
 
 	// 單筆新增交易版
-	// 單筆新增交易版
 	public int addOneTx(String ename, Integer age) throws Exception {
 		// 建立 TransactionManager
 		DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
