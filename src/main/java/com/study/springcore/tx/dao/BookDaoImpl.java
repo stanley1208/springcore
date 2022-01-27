@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.study.springcore.tx.exception.InsufficientAmount;
+import com.study.springcore.tx.exception.InsufficientQuantity;
+
 @Repository
 public class BookDaoImpl implements BookDao {
 	@Autowired
@@ -30,13 +33,13 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public Integer updateStock(Integer bid, Integer amount) {
+	public Integer updateStock(Integer bid, Integer amount)throws InsufficientQuantity {
 		// 確認該書的最新庫存量
 		Integer new_amount = getStockAmount(bid);
 		if (new_amount <= 0) {
-			throw new RuntimeException(String.format("此書號: %d 目前沒庫存，目前數量:%d", bid, new_amount));
+			throw new InsufficientQuantity(String.format("此書號: %d 目前沒庫存，目前數量:%d", bid, new_amount));
 		} else if (new_amount < amount) {
-			throw new RuntimeException(String.format("此書號: %d 目前庫存不足，目前數量:%d，欲購買數量%d", bid, new_amount, amount));
+			throw new InsufficientQuantity(String.format("此書號: %d 目前庫存不足，目前數量:%d，欲購買數量%d", bid, new_amount, amount));
 
 		}
 		// 修改庫存
@@ -45,14 +48,14 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public Integer updateWallet(Integer wid, Integer money) {
+	public Integer updateWallet(Integer wid, Integer money) throws InsufficientAmount{
 		// 先確認錢包裡面的餘額
 		Integer new_money = getWalletMoney(wid);
 		if (new_money <= 0) {
-			throw new RuntimeException(String.format("錢包號碼:%d目前沒餘額:%d", wid, new_money));
+			throw new InsufficientAmount(String.format("錢包號碼:%d目前沒餘額:%d", wid, new_money));
 
 		} else if (new_money < money) {
-			throw new RuntimeException(String.format("錢包號碼:%d餘額不足，目前餘額:%d，預扣款金額%d", wid, new_money, money));
+			throw new InsufficientAmount(String.format("錢包號碼:%d餘額不足，目前餘額:%d，預扣款金額%d", wid, new_money, money));
 
 		}
 		// 修改餘額
