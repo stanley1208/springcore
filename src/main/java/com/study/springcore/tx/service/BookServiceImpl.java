@@ -19,7 +19,7 @@ public class BookServiceImpl implements BookService {
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { InsufficientAmount.class,
 			InsufficientQuantity.class }, noRollbackFor = { ArithmeticException.class })
-	// getConnection() , setAutocommit(false) , commit()
+	// getConnection() , setAutoCommit(false) , commit()
 	@Override
 	public void buyOne(Integer wid, Integer bid) throws InsufficientAmount, InsufficientQuantity {
 		// 減去一本庫存
@@ -34,7 +34,7 @@ public class BookServiceImpl implements BookService {
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { InsufficientAmount.class,
 			InsufficientQuantity.class }, noRollbackFor = { NullPointerException.class })
-	// getConnection() , setAutocommit(false) , commit()
+	// getConnection() , setAutoCommit(false) , commit()
 	@Override
 	public void buyMany(Integer wid, Integer... bids) throws InsufficientAmount, InsufficientQuantity {
 		// 重複執行 buyOne
