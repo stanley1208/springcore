@@ -13,9 +13,9 @@ create table if not exists book(
 create table if not exists stock(
 	sid integer not null auto_increment,
 	bid integer not null, -- book(書籍資料) 的 id
-	amount integer default 0,,
+	amount integer default 0,
 	primary key (sid) -- 主鍵
-	foreign key(bid) references book(bidd) -- 外件關聯
+	foreign key(bid) references book(bid) -- 外鍵關聯
 	
 );
 -- 建立 wallet(客戶雲端錢包)
